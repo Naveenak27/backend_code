@@ -32,6 +32,13 @@ app.use((req, res) => {
   });
 });
 
+app.get('/status', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Server is running'
+  });
+});
+
 // Start server
 app.listen(PORT, async () => {
   console.log(`🚀 Server is running on port ${PORT}`);
