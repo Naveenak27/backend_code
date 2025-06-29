@@ -15,6 +15,13 @@ app.use(express.json());
 app.use('/feedbacks', feedbackRoutes);
 app.use('/stats', statsRoutes);
 
+app.get('/status', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Server is running'
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({
@@ -32,12 +39,7 @@ app.use((req, res) => {
   });
 });
 
-app.get('/status', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'Server is running'
-  });
-});
+
 
 // Start server
 app.listen(PORT, async () => {
